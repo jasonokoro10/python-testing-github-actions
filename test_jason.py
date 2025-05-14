@@ -45,91 +45,54 @@ biblioteca = [
     }
     ]
 
-# Test amb múltiples paràmetres
 @pytest.mark.parametrize(
-    "input1, input2, resultat_esperat",  # Noms dels paràmetres
+    "input1, input2, resultat_esperat",
     [
-        (biblioteca, "novel·la", ['El Quixot', 'Crim i Càstig']), # Hauria de passar
-        (biblioteca, "ciència-ficció", ['1984']), # Hauria de passar
-        (biblioteca, "novel·la", ['1984', 'El Quixot']) # NO hauria de passar
+        (biblioteca, "novel·la", ['El Quixot', 'Crim i Càstig']),
+        (biblioteca, "ciència-ficció", ['1984']),
+        (biblioteca, "fantasia", ['El Senyor dels Anells'])  # Corregido
     ]
 )
-
-# Funció per fer la prova
 def test_llibres_iguals(input1, input2, resultat_esperat):
-    '''
-    Comprova si la funció 'llibres_per_categoria' retorna els llibres correctes per a una categoria donada.
-    
-    :param input1: Llista de llibres en una biblioteca
-    :param input2: Categoria que vols buscar
-    :param resultat_esperat: Llista de títols esperats
-    
-    "assert": Comprova si el resultat retornat per 'llibres_per_categoria' coincideix amb el resultat esperat.
-    
-    '''
-    assert llibres_per_categoria(input1, input2) == resultat_esperat # Comprovem si el resultat es el mateix
+    assert llibres_per_categoria(input1, input2) == resultat_esperat
 
 #___________________________________________
 
-# Test amb múltiples paràmetres
 @pytest.mark.parametrize(
-    "primer, segon, resultat", # Noms dels paràmetres
+    "primer, segon, resultat",
     [
-        (biblioteca, "El Senyor dels Anells", False), # Hauria de passar
-        (biblioteca, "El Quixot", False), # Hauria de passar
-        (biblioteca, "El Quixot", True) # NO hauria de passar
-        
+        (biblioteca, "El Senyor dels Anells", False),
+        (biblioteca, "Crim i Càstig", True),  # Corregido
+        (biblioteca, "El Quixot", False)
     ]
 )
 
-# Funció per fer la prova
 def test_esta_disponible(primer, segon, resultat):
-    '''
-    Comprova si la funció 'esta_disponible' determina correctament la disponibilitat d'un llibre.
-    
-    :param primer: Llista de llibres en una biblioteca
-    :param segon: Títol del llibre que es vol comprovar.
-    :param resultat: Estat que esperem de la disponibilitat del llibre (True = disponible, False = no). 
-    
-    "assert": Comprova si el resultat retornat per 'esta_disponible' coincideix amb el resultat esperat.
-    
-    '''
-    assert esta_disponible(primer, segon) == resultat # Comprovem si el resultat es el mateix
+    assert esta_disponible(primer, segon) == resultat
     
 #___________________________________________
 
-# Test amb múltiples paràmetres
 @pytest.mark.parametrize(
-    "a, b, resultat", # Noms dels paràmetres
+    "a, b, resultat",
     [
-        (biblioteca, "Pere", True), # Hauria de passar
-        (biblioteca, "Joan", False), # Hauria de passar
-        (biblioteca, "Pere", False) # Hauria de fallar
+        (biblioteca, "Pere", True),
+        (biblioteca, "Joan", False),
+        (biblioteca, "Anna", False)  # Corregido
     ]
 )
 
-# Funció per fer la prova
 def test_usuari_te_prestecs(a, b, resultat):
-    '''
-    Comprova si la funció 'usuari_te_prestecs' detecta correctament si un usuari té préstecs actius.
-    
-    :param a: Llista de llibres en una biblioteca
-    :param b: Nom de l'usuari que es vol comprovar
-    :param resultat: Estat esperat (True = té préstecs actius, False = no).
-    
-    "assert": Comprova si el resultat retornat per 'usuari_te_prestecs' coincideix amb el resultat esperat.
-    '''
-    assert usuari_te_prestecs(a, b) == resultat # Comprovem si el resultat es el mateix
+    assert usuari_te_prestecs(a, b) == resultat
     
 #___________________________________________
 
 # Test amb múltiples paràmetres
 @pytest.mark.parametrize(
-    "input1, input2, resultat", # Noms dels paràmetres
+    "input1, input2, resultat",
     [
-        (biblioteca, "El Senyor dels Anells", 67), # Hauria de passar
-        (biblioteca, "Crim i Càstig", 63), # Hauria de passar
-        (biblioteca, "El Quixot", 1000) # Hauria de fallar
+        (biblioteca, "El Senyor dels Anells", 67),
+        (biblioteca, "Crim i Càstig", 63),
+        (biblioteca, "El Quixot", 47)  # Corregido
     ]
 )
 

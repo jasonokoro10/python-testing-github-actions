@@ -13,11 +13,11 @@ def llibres_per_categoria(biblioteca, categoria):
     Exemple de retorn:
         ["El Quixot", "Don Juan Tenorio"]
     """
-    llibres_per_categoria = []
+    llibres_resultat = []
     for llibre in biblioteca:
         if llibre["categoria"] == categoria:
             llibres_per_categoria.append(llibre["llibre"])
-    return llibres_per_categoria
+    return llibres_resultat
 
 def esta_disponible(biblioteca, llibre):
     """
@@ -84,7 +84,6 @@ def dies_prestec_total(biblioteca, llibre):
         if llibre_b["llibre"] == llibre:
             for usuari in llibre_b["prestecs"]:
                 total += usuari["dies"]
-            return total
     return total
     
 def main():

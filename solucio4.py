@@ -54,8 +54,7 @@ Fes exemples de crida amb els paràmetres m_ex i 2, i m_ex i 10 i imprimeix el r
 """
 
 def sumar_fila(matriu, index=0):
-    
-    if 0<=index<len(matriu) or -1>=index>=-len(matriu):
+    if 0 <= index < len(matriu):
         return sum(matriu[index])
     else:
         return None
@@ -105,8 +104,7 @@ si l’operació no és vàlida no farà res.
 
 """
 
-def transformar(matriu,k,op):
-    
+def transformar(matriu, k, op):
     for i in range(len(matriu)):
         for j in range(len(matriu[i])):
             if op == "+":
@@ -116,4 +114,5 @@ def transformar(matriu,k,op):
             elif op == "*":
                 matriu[i][j] *= k
             elif op == "/":
-                matriu[i][j] /= k
+                if k != 0:
+                    matriu[i][j] /= k

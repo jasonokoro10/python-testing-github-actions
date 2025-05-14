@@ -37,24 +37,12 @@ class TestProva03(unittest.TestCase):
 class TestProva04(unittest.TestCase):
     
     def test4(self):
-        
-        '''
-        Funció per comprovar si el resultat de la funció 
-        es un True
-        ''' 
-        
         resultat = cercar_el(m_ex, 6, True)
-        self.assertTrue(resultat, (True, None))
+        self.assertEqual(resultat, (True, (1,2)))  # Corregido
     
     def test5(self):
-        
-        '''
-        Funció per comprovar si el resultat de la funció 
-        es un True
-        ''' 
-        
-        resultat = sumar_fila(m_ex)
-        self.assertTrue(resultat, None)
+        resultat = sumar_fila(m_ex, 1)  # Agregado índice válido
+        self.assertEqual(resultat, 15)  # Corregido
     
     def test6(self):
         
