@@ -16,7 +16,7 @@ def llibres_per_categoria(biblioteca, categoria):
     llibres_resultat = []
     for llibre in biblioteca:
         if llibre["categoria"] == categoria:
-            llibres_per_categoria.append(llibre["llibre"])
+            llibres_resultat.append(llibre["llibre"])
     return llibres_resultat
 
 def esta_disponible(biblioteca, llibre):
